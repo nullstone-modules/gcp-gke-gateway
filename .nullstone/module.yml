@@ -1,0 +1,13 @@
+org_name: nullstone
+name: gcp-gke-gateway
+friendly_name: GKE Gateway
+description: Creates a standalone Kubernetes Gateway using GCP Load Balancers
+category: ingress
+subcategory: ""
+provider_types:
+    - gcp
+platform: gateway
+subplatform: gke
+type: ""
+appCategories: []
+is_public: true
