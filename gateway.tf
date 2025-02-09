@@ -1,12 +1,17 @@
+locals {
+  name      = local.resource_name
+  namespace = kubernetes_manifest.gateway.manifest.metadata.namespace
+}
+
 resource "kubernetes_manifest" "gateway" {
   manifest = {
     apiVersion = "gateway.networking.k8s.io/v1beta1"
     kind       = "Gateway"
 
     metadata = {
-      name      = local.resource_name
+      name = local.resource_name
       # namespace = "default"
-      labels    = local.labels
+      labels = local.labels
 
       annotations = {
         "networking.gke.io/certmap" = local.certificate_map_name
