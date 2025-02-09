@@ -1,6 +1,6 @@
 locals {
   name      = local.resource_name
-  namespace = kubernetes_manifest.gateway.manifest.metadata.namespace
+  namespace = local.cluster_default_namespace
 }
 
 resource "kubernetes_manifest" "gateway" {
@@ -9,9 +9,9 @@ resource "kubernetes_manifest" "gateway" {
     kind       = "Gateway"
 
     metadata = {
-      name = local.resource_name
-      # namespace = "default"
-      labels = local.labels
+      name      = local.resource_name
+      namespace = local.namespace
+      labels    = local.labels
 
       annotations = {
         "networking.gke.io/certmap" = local.certificate_map_name

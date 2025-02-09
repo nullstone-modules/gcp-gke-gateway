@@ -4,8 +4,9 @@ data "ns_connection" "cluster" {
 }
 
 locals {
-  cluster_endpoint       = data.ns_connection.cluster.outputs.cluster_endpoint
-  cluster_ca_certificate = data.ns_connection.cluster.outputs.cluster_ca_certificate
+  cluster_endpoint          = data.ns_connection.cluster.outputs.cluster_endpoint
+  cluster_ca_certificate    = data.ns_connection.cluster.outputs.cluster_ca_certificate
+  cluster_default_namespace = data.ns_connection.cluster.outputs.default_namespace
 }
 
 // See https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_config#example-usage-configure-kubernetes-provider-with-oauth2-access-token
