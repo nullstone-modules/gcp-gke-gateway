@@ -43,4 +43,8 @@ resource "kubernetes_manifest" "gateway" {
       ]
     }
   }
+
+  // The policy must exist before the controller programs the HTTPS proxy so the
+  // TLS floor is enforced from the start.
+  depends_on = [kubernetes_manifest.gateway_policy]
 }

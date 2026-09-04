@@ -11,3 +11,5 @@ This module creates a Gateway that is listening via `HTTPS:443` on the public in
 In order to support this, this module requires a `certificate-map` connection that contains a GCP Certificate Map.
 
 While the Certificate Map must exist at creation of this Gateway, additional SSL Certificates may be added to the Certificate Map after the Gateway is created.
+
+The Gateway enforces TLS 1.2+ (GCP SSL policy profile `RESTRICTED`); clients on TLS 1.0/1.1 are rejected.
